@@ -174,3 +174,8 @@
   color: #666;
   margin-top: 4px;
 }
+/*更多产品*/
+.more-products-button {
+  justify-content: center;
+  margin-top: 16px;
+}

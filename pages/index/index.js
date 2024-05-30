@@ -30,7 +30,9 @@ Page({
       // 继续添加更多产品信息
     ]
   },
-  onLoad: function () {
-    console.log('Index Page Loaded');
+  navigateToProductList: function() {
+    tt.switchTab({
+      url: '/pages/activity/activity'  // 确保路径正确
+    });
   }
 });
