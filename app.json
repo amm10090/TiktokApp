@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/exhibition/exhibition",
+        "pages/my/my",
+        "pages/activity/activity"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "广丽塑胶",
+        "backgroundColor": "#eeeeee",
+        "backgroundTextStyle": "light"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#ff6600",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home_selected.png"
+            },
+            {
+                "pagePath": "pages/exhibition/exhibition",
+                "text": "产品列表",
+                "iconPath": "images/product.png",
+                "selectedIconPath": "images/product_selected.png"
+            },
+            {
+                "pagePath": "pages/activity/activity",
+                "text": "关于我们",
+                "iconPath": "images/about.png",
+                "selectedIconPath": "images/about_selected.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "联系我们",
+                "iconPath": "images/contact.png",
+                "selectedIconPath": "images/contact_selected.png"
+            }
+        ]
+    }
+}

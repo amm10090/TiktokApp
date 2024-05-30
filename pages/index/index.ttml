@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- 轮播图部分 -->
+  <swiper class="banner" autoplay="true" interval="3000" indicator-dots="true">
+    <block tt:for="{{banners}}" tt:key="src">
+      <swiper-item>
+        <view class="banner-item">
+          <image src="{{item.src}}" class="slide-image" />
+          <view class="text-container" style="flex-direction:column;">
+            <view class="title">{{item.title}}</view>
+            <view class="subtitle">{{item.subtitle}}</view>
+            <view class="date">{{item.date}}</view>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 按钮部分 -->
+  <view class="buttons">
+    <block tt:for="{{buttons}}" tt:key="text">
+      <view class="button">
+        <image src="{{item.icon}}" class="button-icon" />
+        <text>{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 产品展示部分 -->
+  <view class="section">
+    <text class="section-title">精选展览</text>
+    <view class="arrow"></view>
+  </view>
+  <scroll-view class="scroll-container" scroll-y="true">
+    <block tt:for="{{products}}" tt:key="id">
+      <view class="product-item">
+        <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-description">{{item.description}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
