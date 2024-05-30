@@ -42,7 +42,7 @@
     </block>
 <!-- 更多产品按钮 -->
 <view class="more-products-button" bindtap="navigateToProductList">
-  <button>更多产品</button>
+  <button>更多产品~</button>
 </view>
   </scroll-view>
 </view>
