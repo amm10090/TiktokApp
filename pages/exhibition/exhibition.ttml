@@ -1,2 +1,27 @@
-<!-- e:\DOUyin\2\pages\exhibition\exhibition.ttml -->
-<text>产品列表</text>
+<view class="container">
+    <!-- 类别导航 -->
+    <scroll-view class="category-nav" scroll-x="true">
+        <view class="category-item" tt:for="{{categories}}" tt:key="id" bindtap="filterProducts" data-category="{{item.id}}">
+            <image src="{{item.icon}}" alt="{{item.name}}"></image>
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+    <!-- 其他内容 -->
+</view>
+
+    
+    <!-- 产品列表 -->
+    <scroll-view class="product-list" scroll-y="true">
+      <block tt:for="{{filteredProducts}}" tt:key="id">
+        <view class="product-item">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="product-info">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-price">${{item.price}}</text>
+            <image src="/path/to/cart-icon.png" class="cart-icon" alt="Add to Cart"></image>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  
