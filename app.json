@@ -33,12 +33,6 @@
             {
                 "pagePath": "pages/activity/activity",
                 "text": "关于我们",
-                "iconPath": "images/about.png",
-                "selectedIconPath": "images/about_selected.png"
-            },
-            {
-                "pagePath": "pages/my/my",
-                "text": "联系我们",
                 "iconPath": "images/contact.png",
                 "selectedIconPath": "images/contact_selected.png"
             }

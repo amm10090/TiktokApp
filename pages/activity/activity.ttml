@@ -1,1 +1,34 @@
-<!-- e:\DOUyin\2\pages\activity\activity.ttml -->
+<view class="container">
+    <view class="header">
+      <image class="profile-image" src="{{userInfo.image}}" />
+      <view class="name">{{userInfo.name}}</view>
+      <view class="title">{{userInfo.title}}</view>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">企业介绍</view>
+      <view class="section-content">{{userInfo.profile}}</view>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">联系我们</view>
+      <block tt:for="{{userInfo.education}}" tt:key="*this">
+        <view class="education-item">
+          <text>{{item.school}} - {{item.degree}}</text>
+          <text>{{item.period}}</text>
+        </view>
+      </block>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">Skills</view>
+      <block tt:for="{{userInfo.skills}}" tt:key="*this">
+        <view class="skill-item">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </view>
+      </block>
+    </view>
+  </view>
+  

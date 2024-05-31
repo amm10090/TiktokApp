@@ -1,17 +1,17 @@
 Page({
   data: {
     banners: [
-      { src: '/images/main.jpg', title: '压胶条神器', subtitle: '胶条安装铲', date: '' },
-      { src: '/images/main2.jpg', title: '丁晴密封条', subtitle: '耐油耐磨缓震', date: '2023.7.1 - 2023.12.31' }
+      { src: '/images/main/main.jpg', title: '压胶条神器', subtitle: '胶条安装铲', date: '' },
+      { src: '/images/main/main2.jpg', title: '丁晴密封条', subtitle: '耐油耐磨缓震', date: '2023.7.1 - 2023.12.31' }
     ],
     buttons: [
       { text: '公司介绍', icon: '/images/ticket.png', url: '/pages/activity/activity' },
-      { text: '联系我们', icon: '/images/guide.png', url: '/pages/my/my' },
+      { text: '联系我们', icon: '/images/guide.png', url: '/pages/exhibition/exhibition' },
     ],
     products: [
       {
         id: 1,
-        image: '/images/main.jpg', // 图片路径，可以是网络地址或本地路径
+        image: '/images/main/main.jpg', // 图片路径，可以是网络地址或本地路径
         name: '胶条安装铲',
         description: '产品介绍1'
       },
@@ -32,7 +32,7 @@ Page({
   },
   navigateToProductList: function() {
     tt.switchTab({
-      url: '/pages/activity/activity'  // 确保路径正确
+      url: '/pages/exhibition/exhibition'  // 确保路径正确
     });
   },
   buttons1: function(event) {

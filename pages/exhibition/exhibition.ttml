@@ -1,27 +1,30 @@
 <view class="container">
-    <!-- 类别导航 -->
-    <scroll-view class="category-nav" scroll-x="true">
-        <view class="category-item" tt:for="{{categories}}" tt:key="id" bindtap="filterProducts" data-category="{{item.id}}">
-            <image src="{{item.icon}}" alt="{{item.name}}"></image>
-            <text>{{item.name}}</text>
+    <view class="header">
+        <text class="header-title">{{headerTitle}}</text>
+    </view>
+    <view class="menu">
+        <view class="menu-toggle" bindtap="toggleMenu">
+            <text>{{menuToggleText}}</text>
         </view>
-    </scroll-view>
-    <!-- 其他内容 -->
+        <view class="menu-items" hidden="{{!menuVisible}}">
+            <block tt:for="{{menuItems}}" tt:key="index">
+                <view class="menu-item {{item.active ? 'active' : ''}}" bindtap="selectMenuItem" data-index="{{index}}">
+                    <text>{{item.text}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="products">
+        <block tt:for="{{filteredProducts}}" tt:key="index">
+            <view class="product">
+                <image class="product-image" src="{{item.image}}" />
+                <view class="product-info">
+                    <text class="product-name">{{item.name}}</text>
+                    <!-- 价格显示
+                        <text class="product-price">${{item.price}}</text> 
+                    -->
+                </view>
+            </view>
+        </block>
+    </view>
 </view>
-
-    
-    <!-- 产品列表 -->
-    <scroll-view class="product-list" scroll-y="true">
-      <block tt:for="{{filteredProducts}}" tt:key="id">
-        <view class="product-item">
-          <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
-          <view class="product-info">
-            <text class="product-name">{{item.name}}</text>
-            <text class="product-price">${{item.price}}</text>
-            <image src="/path/to/cart-icon.png" class="cart-icon" alt="Add to Cart"></image>
-          </view>
-        </view>
-      </block>
-    </scroll-view>
-  </view>
-  

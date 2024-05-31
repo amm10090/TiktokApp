@@ -1,30 +1,51 @@
+// index.js
 Page({
   data: {
-    categories: [
-      { id: 1, name: '全部商品', icon: '/images/all.png' },
-      { id: 2, name: '密封条', icon: '/path/to/icon2.png' },
-      { id: 3, name: '工具', icon: '/path/to/icon3.png' },
-      // 添加更多类别，确保每个类别项包含 `icon` 属性
+    headerTitle: "产品列表",
+    menuItems: [
+      { text: "全部商品", active: true },
+      { text: "密封条", active: false },
+      { text: "工具", active: false },
     ],
     products: [
-      { id: 1, image: '/images/main/main.jpg', name: 'Black Simple Lamp', price: 12.00, category: 1 },
-      { id: 2, image: '/images/main/main2.jpg', name: 'Minimal Stand', price: 25.00, category: 1 },
-      { id: 3, image: '/images/product3.jpg', name: 'Coffee Chair', price: 20.00, category: 2 },
-      { id: 4, image: '/images/product4.jpg', name: 'Simple Desk', price: 50.00, category: 3 },
-      // 添加更多产品
+      { name: "胶条铲子",  image: "/images/main/main.jpg", categories: ["全部商品","工具"] },
+      { name: "丁晴密封条", price: 25.00, image: "/images/main/main2.jpg", categories: ["全部商品", "密封条"]},
+      { name: "Coffee Chair", price: 20.00, image: "path/to/chair.jpg", categories: ["全部商品", "工具"] },
+      { name: "Simple Desk", price: 50.00, image: "path/to/desk.jpg", categories: ["全部商品","工具"] }
     ],
-    filteredProducts: []
+    filteredProducts: [],
+    menuVisible: false,
+    menuToggleText: "全部分类"
   },
-  onLoad: function() {
+
+  onLoad() {
+    this.filterProducts("全部商品");
+  },
+  
+  toggleMenu() {
+    const newMenuVisible = !this.data.menuVisible;
     this.setData({
-      filteredProducts: this.data.products
+      menuVisible: newMenuVisible,
+      menuToggleText: newMenuVisible ? "全部分类" : "展开分类"
     });
   },
-  filterProducts: function(event) {
-    const category = event.currentTarget.dataset.category;
-    const filteredProducts = this.data.products.filter(product => product.category === category);
-    this.setData({
-      filteredProducts: filteredProducts
+
+  selectMenuItem(e) {
+    const index = e.currentTarget.dataset.index;
+    const selectedCategory = this.data.menuItems[index].text;
+    const menuItems = this.data.menuItems.map((item, idx) => {
+      item.active = idx === index;
+      return item;
     });
+    this.setData({ menuItems });
+    this.filterProducts(selectedCategory);
+  },
+
+  filterProducts(category) {
+    let filteredProducts = this.data.products;
+    if (category !== "全部商品") {
+      filteredProducts = this.data.products.filter(product => product.categories.includes(category));
+    }
+    this.setData({ filteredProducts });
   }
-});
+})

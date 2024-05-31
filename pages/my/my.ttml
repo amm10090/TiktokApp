@@ -1,2 +1,43 @@
-<!-- e:\DOUyin\2\pages\my\my.ttml -->
-<text>e:\DOUyin\2\pages\my\my.ttml</text>
+<view class="container">
+    <view class="header">
+      <image class="profile-image" src="{{userInfo.image}}" />
+      <view class="name">{{userInfo.name}}</view>
+      <view class="title">{{userInfo.title}}</view>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">Profile</view>
+      <view class="section-content">{{userInfo.profile}}</view>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">Education</view>
+      <block wx:for="{{userInfo.education}}" wx:key="*this">
+        <view class="education-item">
+          <text>{{item.school}} - {{item.degree}}</text>
+          <text>{{item.period}}</text>
+        </view>
+      </block>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">Skills</view>
+      <block wx:for="{{userInfo.skills}}" wx:key="*this">
+        <view class="skill-item">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </view>
+  
+    <view class="section">
+      <view class="section-title">Experience</view>
+      <block wx:for="{{userInfo.experience}}" wx:key="*this">
+        <view class="experience-item">
+          <text>{{item.position}} at {{item.company}}</text>
+          <text>{{item.period}}</text>
+          <text>{{item.description}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  
